@@ -171,41 +171,36 @@ int countSetBits(int n)
 {
     return __builtin_popcount(n);
 }
-bool isFloat(double n) {
-double intpart;
-double frac = modf(n, &intpart);
-return frac != 0.0;
+bool isFloat(double n)
+{
+    double intpart;
+    double frac = modf(n, &intpart);
+    return frac != 0.0;
 }
 
 int main()
 {
     optimize();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
-        ll n;
-        cin >> n;
+        int n, m;
+        cin >> n >> m;
 
-        int cnt2 = 0, cnt3 = 0;
+        int min_moves = (n + 1) / 2; 
 
-        while (n % 2 == 0) {
-            n /= 2;
-            cnt2++;
+        for (int i = min_moves; i <= n; i++)
+        {
+            if (i % m == 0)
+            {
+                cout << i << endl;
+                return 0;
+            }
         }
 
-        while (n % 3 == 0) {
-            n /= 3;
-            cnt3++;
-        }
-
-        if (n != 1 || cnt2 > cnt3) {
-            cout << -1 << endl;
-        } else {
-            cout << 2 * cnt3 - cnt2 << endl;
-        }
-
-     }
+        cout << -1 << endl;
+    }
 
     return 0;
 }

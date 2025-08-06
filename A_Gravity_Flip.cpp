@@ -181,29 +181,25 @@ int main()
 {
     optimize();
     int tc = 1;
-    cin >> tc;
+    // cin >> tc;
     while (tc--)
     {
-        ll n;
+        int n;
         cin >> n;
 
-        int cnt2 = 0, cnt3 = 0;
-
-        while (n % 2 == 0) {
-            n /= 2;
-            cnt2++;
+        vector<int> v(n), a(n);
+        for (int i = 0; i < n; i++)
+        {
+            cin >> v[i];
         }
 
-        while (n % 3 == 0) {
-            n /= 3;
-            cnt3++;
-        }
+        sort(v.begin(), v.end());
 
-        if (n != 1 || cnt2 > cnt3) {
-            cout << -1 << endl;
-        } else {
-            cout << 2 * cnt3 - cnt2 << endl;
+        for (int i = 0; i < n; i++)
+        {
+           cout<<v[i]<<" ";
         }
+        
 
      }
 
